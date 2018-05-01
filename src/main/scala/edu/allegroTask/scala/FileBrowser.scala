@@ -16,7 +16,6 @@ object FileBrowser {
     return files.toList
   }
   def saveCsv[K,V](path: String, name: String, columnNames: List[String], data: Map[K,V]): Unit ={
-    // PrintWriter
     try{
       val directory = new File(path)
       if (!directory.exists) {

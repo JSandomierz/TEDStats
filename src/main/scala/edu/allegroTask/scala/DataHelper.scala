@@ -4,12 +4,6 @@ import scala.collection.parallel.mutable.ParHashMap
 import scala.xml.NodeSeq
 
 object DataHelper {
-  var numF02WithoutOriginal = 0
-  var numF02WithTotal = 0
-  var numF02WithPatrs = 0
-  var numF02count = 0
-  //val mapFormTypeCount = new ParHashMap[String, BigInt]()
-
   val mapCostsInEuro = new ParHashMap[String, BigDecimal]()
   val mapCountNonZero = new ParHashMap[String, BigInt]()
   val mapCount = new ParHashMap[String, BigInt]()
@@ -24,15 +18,6 @@ object DataHelper {
       }
     }
     return result
-  }
-  def printStats(): Unit ={
-    println("MapCostsInEuro")
-    println(DataHelper.mapCostsInEuro)
-    println("MapCount")
-    println(DataHelper.mapCountNonZero)
-    println(s"STATS F02Count: $numF02count, totals: $numF02WithTotal, parts: $numF02WithPatrs, noOrig: $numF02WithoutOriginal")
-    //println("MapFormTypeCount")
-    //println(Helper.mapFormTypeCount)
   }
   def saveResults(path: String): Unit ={
     val numMeanCountryContracts: BigDecimal = BigDecimal( this.mapCount.values.sum.toString() ) / this.mapCount.size
